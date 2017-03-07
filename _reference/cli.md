@@ -143,6 +143,18 @@ To set this up on OS X with Homebrew, save the convox autocomplete helper in the
 then add an autocomplete initializer `~/.bash_profile`:
 
     echo "source $(brew --prefix)/etc/bash_completion.d/convox" >> "$HOME/.profile"
+    
+For `zsh`, then add the following to your `.zshrc`:
+
+    autoload -U compinit && compinit
+    autoload -U bashcompinit && bashcompinit
+    source $(brew --prefix)/etc/bash_completion.d/convox
+    
+You may need to change the first line of the bash completion script to:
+
+    : ${PROG:=$(basename $0)}
+
+as well for `zsh` 
 
 ### Debian-based Linux distributions
 
